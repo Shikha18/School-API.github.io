@@ -7,13 +7,14 @@ exports.test = function (req, res) {
 exports.student_details_create = function (req, res, next) {
 	var student = new Student(
 	{
-           Student_name: req.body.Student_name,
-           Gender: req.body.Gender,
-           Email: req.body.Email,
-           Contact: req.body.Contact,
-           DOB: req.body.DOB,
-           Address: req.body.Address
-
+		student_name: req.body.student_name,
+		gender: req.body.gender,
+		class: req.body.class,
+		age: req.body.age,
+		email: req.body.email,
+		contact: req.body.contact,
+		date_of_birth: req.body.date_of_birth,
+		address: req.body.address
 	});
 
 	student.save(function(err, obj){
@@ -21,18 +22,25 @@ exports.student_details_create = function (req, res, next) {
 			var api_res = {
 				msg: 'There occurred some error'
 			}
-			res.status(500).send(api_res);
+			return res.status(500).send(api_res);
 		}
 		var api_res = {
 			msg: 'Student_details Created successfully',
 			data: obj
 		}
 		res.status(201).send(api_res);
+
 	})
 };
 
 exports.students_list = function(req, res) {
 	Student.find({}, function (err, student){
+
+		console.log('req.query')
+	    console.log(req.query)
+	    console.log('req.params')
+	    console.log(req.params)
+
 		if(err) return next(err);
 		res.send(student);
 

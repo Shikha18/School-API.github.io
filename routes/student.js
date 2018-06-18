@@ -14,6 +14,5 @@ router.post('/', Student_controller.student_details_create);
 
 router.put('/:id', Student_controller.student_details_update);
 
-router.delete('/:id',
-	Student_controller.student_details_delete);
+router.delete('/:id', Student_controller.student_details_delete);
 
