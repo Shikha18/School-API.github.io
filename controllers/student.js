@@ -20,7 +20,8 @@ exports.student_details_create = function (req, res, next) {
 	student.save(function(err, obj){
 		if(err) {
 			var api_res = {
-				msg: 'There occurred some error'
+				msg: 'There occurred some error',
+				err: err
 			}
 			return res.status(500).send(api_res);
 		}
