@@ -1,4 +1,5 @@
 var Student = require('../models/student');
+
 exports.test = function (req, res) {
 	res.send('Greetings from the Test controller!');
 
@@ -35,15 +36,33 @@ exports.student_details_create = function (req, res, next) {
 };
 
 exports.students_list = function(req, res) {
-	Student.find({}, function (err, student){
+	Student.find(req.query, function (err, student){
 
-		console.log('req.query')
-	    console.log(req.query)
-	    console.log('req.params')
-	    console.log(req.params)
+
+
+		console.log('req.query');
+	    console.log(req.query);
+	  //  console.log('req.query.search');
+	    //console.log(req.querysearch);
+	    console.log('req.params');
+	    console.log(req.params);
+	   // console.log(window.location.search);
 
 		if(err) return next(err);
-		res.send(student);
+		if(student) {
+			var api_res ={
+				msg: 'Students are with this information',
+				data: student
+				
+			}
+			return res.status(500).send(api_res);
+
+				var api_res= {
+					msg: 'Students are not there with this information'
+				
+			}
+		}
+		res.send(api_res);
 
 	})
 };
@@ -51,7 +70,7 @@ exports.students_list = function(req, res) {
 exports.student_details = function(req, res) {
 	Student.findById(req.params.id, function (err, student){
 		if(err) return next(err);
-		if (product) {
+		if (student) {
 			var api_res = {
 				msg: 'All Good',
 				data: student
@@ -81,18 +100,11 @@ exports.student_details_update = function(req, res) {
 					msg1: 'Student_s Previous details',
 					data1: student,
 					msg2: 'Student_s Updated details',
-					data: req.body
-					
-					
+					data: req.body	
 				}  
-
-
 			}
-			
 			res.status(200).send(api_res);
-
 		})
-
 };
 
  exports.student_details_delete = function (req, res) {
