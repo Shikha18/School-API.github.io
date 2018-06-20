@@ -91,7 +91,7 @@ exports.class_details_update = function(req, res) {
 				var api_res = {
 
 			         msg: 'Class Updated details',
-					 data: req.body	
+					 data: classl	
 				}  
 			}
 			res.status(200).send(api_res);

@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var ClassSchema = new Schema({
 	class_name: {type: String, max: 10},
-	sections: {type: String, required: true, max: 20}
+	sections: {type: Array, required: true, max: 5}
 });
 
 
