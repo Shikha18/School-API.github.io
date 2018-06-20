@@ -13,8 +13,8 @@ var app = express();
 var mongoose = require('mongoose');
 
 var dev_db_url1 = 'mongodb://Shikha18:mangal1997@ds163510.mlab.com:63510/teacher-api';
-var dev_db_url2 = 'mongodb://Shikha18:mangal1997@ds259820.mlab.com:59820/school-api';
-var dev_db_url3 = 'mongodb://Shikha18:<mangal1997@ds163650.mlab.com:63650/subject-api';
+var dev_db_url2 = 'mongodb://shikha18:mangal1997@ds259820.mlab.com:59820/school-api';
+var dev_db_url3 = 'mongodb://Shikha18:mangal1997@ds163650.mlab.com:63650/subject-api';
 
 var mongoDB1 = process.env.MONGODB_URI  || dev_db_url1;
 var mongoDB2 = process.env.MONGODB_URI  || dev_db_url2;
@@ -25,8 +25,8 @@ mongoose.connect(mongoDB2);
 mongoose.connect(mongoDB3);
 
 mongoose.Promise1 = global.Promise;
-mongoose.Promise2 = global.Promise;
-mongoose.Promise3 = global.Promise;
+// mongoose.Promise2 = global.Promise;
+// mongoose.Promise3 = global.Promise;
 
 
 var db = mongoose.connection;
