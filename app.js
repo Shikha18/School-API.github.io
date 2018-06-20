@@ -5,6 +5,7 @@ var classl = require('./routes/class')
 var teacher = require('./routes/teacher');
 var student = require('./routes/student');
 var subject = require('./routes/subject');
+var course = require('./routes/course');
 
 
 
@@ -50,6 +51,7 @@ app.use('/teachers', teacher);
 app.use('/students', student);
 app.use('/subjects', subject);
 app.use('/classes', classl);
+app.use('/courses', course);
 
 
 var port = 1234;
