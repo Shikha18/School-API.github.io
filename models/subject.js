@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var SubjectSchema = new Schema({
 	sub_name: {type: String, required: true, max: 100},
-	chapters: {type: Number, required: true, max: 100}
+	chapters: {type: String, required: true, max: 100}
 });
 
 

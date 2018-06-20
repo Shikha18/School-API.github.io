@@ -42,11 +42,10 @@ exports.students_list = function(req, res) {
 
 		console.log('req.query');
 	    console.log(req.query);
-	  //  console.log('req.query.search');
-	    //console.log(req.querysearch);
+	  
 	    console.log('req.params');
 	    console.log(req.params);
-	   // console.log(window.location.search);
+	  
 
 		if(err) return next(err);
 		if(student) {
